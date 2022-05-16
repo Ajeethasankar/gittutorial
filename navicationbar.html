@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css\navigationbar.css"  />
+
+</head>
+<body>
+
+<div class="topnav" id="myTopnav">
+  <a href="#home" class="active">Home</a>
+  <a href="#Register">Registration</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<div align="center">
+<br>
+ <h1>User Registration</h1>
+  <form th:action="@{/register}" method="post" th:object="${user}" class="form"  enctype="multipart/form-data">
+      <div class="form-group">
+      <label for="id">UserId</label>
+       <input class="form-control" type="text" th:field="*{id}" id="id" placeholder="id">
+      <span class="alert alert-warning" th:if="${#fields.hasErrors('id')}" th:errors="*{id}">Id error</span>
+        </div>
+        <br>
+         <div class="form-group">
+      <label for="name">FullName</label>
+       <input class="form-control" type="text" th:field="*{name}" id="name" placeholder="name">
+         <span class="alert alert-warning" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Full name error</span>
+        </div>
+       
+			<br>
+         <div class="form-group">
+      <label for="email">E-Mail</label>
+       <input class="form-control" type="text" th:field="*{email}" id="email" placeholder="email">
+         <span class="alert alert-warning" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">E-Mail error</span>
+        </div>
+        <br>
+        <br>
+         <div class="form-group">
+      <label for="password">Password:</label>
+       <input class="form-control" type="text" th:field="*{password}" id="password" placeholder="Enter your password"/>
+         <span class="alert alert-warning" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Pssword has Error</span>
+        </div>
+       
+			<br>
+         <div class="form-group">
+      <label for="birthday">Birthday:</label>
+       <input class="form-control" type="date" th:field="*{birthday}" id="birthday"/>
+         <span class="alert alert-warning" th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}">Birthday error</span>
+        </div>
+        <br>
+         <div class="form-group">
+       <label for="gender">Gender:</label>
+        <input type="radio" th:field="*{gender}" value="Male" />Male
+        <input type="radio" th:field="*{gender}" value="Female" />Female
+ 		<span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></span>
+ 		</div>
+ 		
+ 		<br>
+ 		<div class="form-group">
+ 		 <label for="profession">Profession:</label>
+         <select th:field="*{profession}">
+         <option th:each="p : ${listProfession}" th:value="${p}" th:text="${p}" />
+         </select>
+         <span th:if="${#fields.hasErrors('profession')}" th:errors="*{profession}">Error married</span>
+        
+        </div>
+        <br/>
+        
+ 		<div class="form-group">
+         <label for="married">Married:</label>
+        <input type="checkbox" th:field="*{married}" />
+ 		 <span th:if="${#fields.hasErrors('married')}" th:errors="*{married}">Error married</span>
+ 		 </div>
+ 		 
+ 		 </br>
+ 		 <div class="form-group">
+      <label for="note">Note:</label>
+       <textarea class="form-control" rows="5" cols="25"  th:field="*{note}" id="note" placeholder="please enter some notes"></textarea>
+         <span class="alert alert-warning" th:if="${#fields.hasErrors('note')}" th:errors="*{note}">Note has error</span>
+        </div>
+ 		 
+ 		 <br>
+       <div class="form-group">
+      <label for="income">Income:</label>
+       <input class="form-control" type="number" th:field="*{income}" id="income" placeholder="Enter Income">
+         <span class="alert alert-warning" th:if="${#fields.hasErrors('income')}" th:errors="*{income}">Enter Income</span>
+        </div>
+      <br>
+	  <div class="form-group">
+	   <label for="image">Image:</label>
+		<input class="form-control" type="file" name="image" accept="image/png, image/jpeg" />
+		<span class="alert alert-warning" th:if="${#fields.hasErrors('image')}" th:errors="*{image}">Select image</span>
+		</div>
+		<br>
+	  <input class="myButton" type="submit" value="Submit">  
+	  </form>
+	 	 <br>
+<footer>
+  <p>Author: Ajeetha <em>
+  <a href="mailto:Ajeethakumar2803.com">MVG@Digital.com</a></p></em>
+</footer>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+
+</body>
+</html>
