@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+ <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="css\style.css"  />
+  
+</head>
+<body class="text-center">
+
+<form class="form-signin" th:action="@{/login}" method="post">
+  <div class="imgcontainer">
+    <img src="C:\Users\Sankar\Downloads\download pictures\img_avatar2.png" alt="Avatar" class="avatar">
+  </div>
+  <br>
+  <h1>Please sign in</h1><br>
+        
+<br>
+  
+   
+	 <div class="container1" >
+	 
+    <label for="inputEmail">Password</label>
+			<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email" required="" />
+<br>
+   <label for="inputPassword">Password</label>
+                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="" />
+      <br>
+<br>
+
+<div class="signin">
+<button class="glow-on-hover" type="submit">Sign in</button>
+</div>	  
+ 
+  </form>
+   <form class="form-signin" th:action="@{/signup}" method="get">
+   <div class="signup">
+                <button class="glow-on-hover" type="Submit">Signup Here</button>
+           </div>
+		   </form>
+  <br>
+  <br>
+   <div class="message" th:if="${param.error}">
+                    Invalid email and password.
+                </div>
+                <div class="message" th:if="${param.logout}">
+                    You have been logged out.
+                </div>
+ <br>
+<br>
+</div>
+ </body>
+ </html>
+  
